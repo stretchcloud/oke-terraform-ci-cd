@@ -3,13 +3,9 @@ pipeline {
   agent any
 
   environment {
-    COMP_ID = credentials('comp_id')
-    TENANCY_OCID = credentials('tenancy_id')
-    OCI_USER_OCID = credentials('user_ocid')
-    PEM_FINGERPRINT = credentials('fingerprint')
-    PEM_PRIVATE_KEY = credentials('private_key')
     
-    REGION = credentials('oci_region')
+    PEM_FINGERPRINT = credentials('fingerprint')
+    
 
   }
 
@@ -21,12 +17,10 @@ pipeline {
         sh 'mkdir -p creds' 
         sh 'echo $PEM_PRIVATE_KEY | base64 -d > ./creds/oci_api_key.pem'
         
-        sh 'echo $COMP_ID >> vars.tf'
-        sh 'echo $TENANCY_OCID >> vars.tf'
-        sh 'echo $OCI_USER_OCID >> vars.tf'
+        
         sh 'echo $PEM_FINGERPRINT >> vars.tf'
         
-        sh 'echo $REGION >> vars.tf'
+        
       }
     }
 
