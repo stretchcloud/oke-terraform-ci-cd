@@ -8,7 +8,7 @@ pipeline {
     OCI_USER_OCID = credentials('user_ocid')
     PEM_FINGERPRINT = credentials('fingerprint')
     PEM_PRIVATE_KEY = credentials('private_key')
-    SSH_KEY = credentials('ssh_key')
+    
     REGION = credentials('oci_region')
 
   }
@@ -25,7 +25,7 @@ pipeline {
         sh 'echo $TENANCY_OCID >> vars.tf'
         sh 'echo $OCI_USER_OCID >> vars.tf'
         sh 'echo $PEM_FINGERPRINT >> vars.tf'
-        sh 'echo $SSH_KEY >> vars.tf'
+        
         sh 'echo $REGION >> vars.tf'
       }
     }
