@@ -31,8 +31,9 @@ pipeline {
     }
 
     stage('TF Plan') {
+      agent {label 'tf-slave'}
       steps {
-        container('jenkins-slave-terraform') {
+        container('terraform') {
           sh 'terraform init'
           sh 'terraform plan -out myplan'
         }
@@ -48,8 +49,9 @@ pipeline {
     }
 
     stage('TF Apply') {
+      agent {label 'tf-slave'}
       steps {
-        container('jenkins-slave-terraform') {
+        container('terraform') {
           sh 'terraform apply -input=false myplan'
         }
       }
