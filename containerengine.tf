@@ -52,7 +52,7 @@ resource oci_containerengine_node_pool pool1 {
     source_type = data.oci_containerengine_node_pool_option.pool1_option.sources.0.source_type
     boot_volume_size_in_gbs = 60
   }
-  #ssh_public_key      = var.node_pool_ssh_public_key
+  ssh_public_key      = var.node_pool_ssh_public_key
 }
 
 data oci_containerengine_node_pool_option pool1_option {
