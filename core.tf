@@ -3,7 +3,7 @@ resource oci_core_vcn oke-vcn {
   compartment_id = var.compartment_ocid
   defined_tags = {
   }
-  display_name = "oke-vcn-quick-OCI-Dev-Cluster-9372e4b62"
+  display_name = "oke-vcn-quick-OCI-Dev-Cluster"
   dns_label    = "ocidevcluster"
   freeform_tags = {
   }

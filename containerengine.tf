@@ -2,7 +2,7 @@
 resource oci_containerengine_cluster OCI-Dev-Cluster {
   compartment_id = var.compartment_ocid
   kubernetes_version = data.oci_containerengine_node_pool_option.pool1_option.kubernetes_versions.2
-  name               = "OCI-Dev-Test-Cluster"
+  name               = "OCI-Dev-Cluster"
   vcn_id = oci_core_vcn.oke-vcn.id
   options {
     add_ons {
