@@ -8,7 +8,7 @@ pipeline {
     OCI_USER_OCID = credentials('user_ocid')
     PEM_FINGERPRINT = credentials('fingerprint')
     PEM_PRIVATE_KEY = credentials('private_key')
-    SSH_KEY = credentials('nodepool_ssh_key')
+    SSH_KEY = credentials('ssh_key')
     REGION = credentials('oci_region')
 
   }
