@@ -21,12 +21,12 @@ pipeline {
         checkout scm
         sh 'mkdir -p creds' 
         sh 'echo $PEM_PRIVATE_KEY | base64 -d > ./creds/oci_api_key.pem'
-        sh 'echo $COMP_ID >> vars.tf'
-        sh 'echo $TENANCY_OCID >> vars.tf'
-        sh 'echo $OCI_USER_OCID >> vars.tf'
-        sh 'echo $PEM_FINGERPRINT >> vars.tf'
-        sh 'echo $SSH_KEY >> vars.tf'
-        sh 'echo $REGION >> vars.tf'
+        sh 'echo $COMP_ID | base64 -d >> vars.tf'
+        sh 'echo $TENANCY_OCID | base64 -d >> vars.tf'
+        sh 'echo $OCI_USER_OCID | base64 -d >> vars.tf'
+        sh 'echo $PEM_FINGERPRINT | base64 -d >> vars.tf'
+        sh 'echo $SSH_KEY | base64 -d >> vars.tf'
+        sh 'echo $REGION | base64 -d >> vars.tf'
       }
     }
 
