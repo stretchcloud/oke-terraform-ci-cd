@@ -4,13 +4,8 @@ pipeline {
 
   environment {
     
-    COMP_ID = credentials('comp_id')
-    TENANCY_OCID = credentials('tenancy_id')
-    OCI_USER_OCID = credentials('user_ocid')
-    PEM_FINGERPRINT = credentials('fingerprint')
     PEM_PRIVATE_KEY = credentials('private_key')
-    SSH_KEY = credentials('nodepool_ssh_key')
-    REGION = credentials('oci_region')
+    OCI_OCID_VAR = credentials('oci_vars')
     
   }
 
@@ -21,12 +16,7 @@ pipeline {
         checkout scm
         sh 'mkdir -p creds' 
         sh 'echo $PEM_PRIVATE_KEY | base64 -d > ./creds/oci_api_key.pem'
-        sh 'echo \n $COMP_ID | base64 -d >> vars.tf'
-        sh 'echo \n $TENANCY_OCID | base64 -d >> vars.tf'
-        sh 'echo \n $OCI_USER_OCID | base64 -d >> vars.tf'
-        sh 'echo \n $PEM_FINGERPRINT | base64 -d >> vars.tf'
-        sh 'echo \n $SSH_KEY | base64 -d >> vars.tf'
-        sh 'echo \n $REGION | base64 -d >> vars.tf'
+        sh 'echo $OCI_OCID_VAR | base64 -d > vars.tf'
       }
     }
 
